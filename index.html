@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-nr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projeto5-batepapouol</title>
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="chat hidden">
+        <div class="top">
+            <img src="./img/logo.jpg" alt="Bate papo UOL" onclick="window.location.reload()">
+            <ion-icon name="people" onclick="showParticipants()"></ion-icon>
+        </div>
+
+        <div class="msg-box"></div>
+
+        <div class="send">
+            <div>
+                <input type="text" class="type-here" placeholder="Escreva aqui..." />
+                <p class="send-info">Enviando para todos</p>
+            </div>    
+            <ion-icon name="paper-plane-outline" class="btn" onclick="sendMessage()"></ion-icon>
+        </div>
+    </div>
+    
+    <div class="start-screen">
+        <img src="./img/logo.jpg" alt="Bate papo UOL">
+        <div>  
+            <input type="text" class="user-name" placeholder="Digite seu nome" />
+            <br />
+            <input type="submit" class="enter" value="Entrar" onclick="signIn()" />
+        </div>     
+    </div>
+    
+    <div class="desktop-error">
+        <h1>Esta página não possui suporte para Desktop : (</h1>
+        <p>Acesse por um dispositivo mobile ou reduza o tamanho da tela.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

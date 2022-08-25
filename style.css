@@ -1,0 +1,311 @@
+@media (max-width: 600px) {
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #F3F3F3;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    .top {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #FFFFFF;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .top img {
+        width: 75px;
+        height: 53px;
+        margin-left: 22px;
+        cursor: pointer;
+    }
+
+    .top ion-icon {
+        font-size: 45px;
+        margin-right: 21px;
+        cursor: pointer;
+    }
+
+    .send {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #FFFFFF;
+        box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .send ion-icon {
+        font-size: 35px;
+        margin: 0 17px;
+        cursor: pointer;
+    }
+
+    .send input {
+        width:100%;
+        font-size: 18px;
+        font-weight: 400;
+        font-family: 'Roboto', sans-serif;
+        border: none;
+        outline: 0;
+    }
+
+    .send input::placeholder {
+        font-style: italic;
+    }
+
+    .send-info {
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        margin-top: 10px;
+    }
+
+    .send div {
+        height: 64px;
+        width: 100%;
+        margin: 15px 0 0 17px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .msg-box {
+        width: 100%;
+        margin: 106px 0 80px 0;
+    }
+
+    .msg-box > div {
+        width: 100%;
+        min-height: 40px;
+        padding: 0 8px;
+        margin: 4px 0;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+
+    .message {
+        background-color: #FFFFFF; 
+    }
+
+    .status{
+        background-color: #DCDCDC; 
+    }
+
+    .private_message {
+        background-color: #FFDEDE; 
+    }
+
+    .time {
+        margin-right: 8px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: #AAAAAA;
+    }
+
+    .text {
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: #000000;
+        margin: 4px 0;
+        word-break: break-word;
+    }
+
+    .desktop-error {
+        display: none;
+    }
+
+    .start-screen {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #FFFFFF; 
+    }
+
+    .start-screen > img {
+        width: 130px;
+        margin-top: 10.8vh;
+    }
+
+    .start-screen > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 94px;
+    }
+
+    .start-screen > div img {
+        width: 100px;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+    }
+
+    .user-name {
+        width: 260px;
+        height: 54px;
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        color: #AEAEAE;
+        border: 1px solid #D7D7D7;
+        border-radius: 4px;
+    }
+
+    .enter {
+        width: 109px;
+        height: 45px; 
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        color: #696969;
+        background-color: #E7E7E7;
+        border-radius: 9px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .user-name::placeholder {
+        color: #AEAEAE;
+    }
+
+    .cover {
+        background-color: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 2;
+    }
+
+    .participants-bar {
+        height: 100vh;
+        width: 259px;
+        background-color: #FFFFFF;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 3;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        overflow-y: auto;
+    }
+
+    .participants-bar h5 {
+        text-align: center;
+        margin: 36px 36px 20px 36px;
+        line-height: 18.75px;
+        font-weight: 700;
+    }
+
+    .participants-bar p {
+        font-weight: 400;
+        margin: 0 8px;
+        word-break: break-all;
+        max-width: 194px;
+        cursor: pointer;
+    }
+
+    .participants-bar ion-icon {
+        font-size: 20px;
+    }
+
+    .participants-list > div,
+    .visibility-options > div {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        width: 100%;
+        height: 36px;
+        margin: 0 27px 0 20px;
+        position: relative;
+    }
+
+    .visibility-options {
+        margin-bottom: 36px;
+    }
+
+    .checked {
+        color: #28BB25;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        right: 27px;
+        top: calc(50% - 7.5px);
+        
+    }
+
+}
+
+@media (min-width: 601px) {
+    div {
+        display: none;
+    }
+
+    body {
+        background-color: #F3F3F3;
+    }
+
+    .desktop-error {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        height:300px;
+        position: fixed;
+        left: 10%;
+        top: calc(50% - 150px);
+        align-items: center;
+        justify-content: space-between;
+        
+    }
+
+    .desktop-error h1 {
+        font-size: 50px;
+        text-align: center;
+        line-height: 70px;
+        color: #2c2b2b;
+        font-weight: 700;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .desktop-error p {
+        font-size: 20px;
+        text-align: center;
+        color: #2c2b2b;
+        font-weight: 400;
+        font-family: 'Roboto', sans-serif;
+    }  
+}
