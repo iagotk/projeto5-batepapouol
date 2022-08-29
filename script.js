@@ -131,6 +131,149 @@ document.addEventListener("keypress", function(e) {
     }
  });
 
- 
+ /* até aqui carrega/envia msgs, e envia com enter */
      
+ function printParticipants (answer){
+    let users = [];
+    users = answer.data;
+
+    let list = document.querySelector(".participants-list");
+    
+    list.innerHTML += "";
+
+    for(let i = 0 ; i < users.length ; i ++) {
+        if(users[i].name === to) {
+            list.innerHTML += `
+                <div>
+                    <ion-icon name="person-circle"></ion-icon>
+                    <p onclick="setTo(this)">${users[i].name}</p>
+                    <ion-icon class="checked" name="checkmark-sharp"></ion-icon>
+                </div>
+            `;
+        }   else {
+                list.innerHTML += `
+                    <div>
+                        <ion-icon name="person-circle"></ion-icon>
+                        <p onclick="setTo(this)">${users[i].name}</p>
+                    </div>
+                `;
+            }
+    }
+ }
+
+ function showParticipants () {
+    document.body.innerHTML += `
+        <div class="cover" onclick="closeSidebar()"></div>
+     `;
+    
+    document.body.innerHTML += `
+        <div class="participants-bar">
+            <h5>Escolha um contato para enviar mensagem:</h5>
+
+            <div class="participants-list">
+                <div>
+                    <ion-icon name="people"></ion-icon>
+                    <p class="all" onclick="setTo(this)">Todos</p>
+                </div>
+            </div>
+
+            <h5>Escolha a visibilidade:</h5>
+
+            <div class="visibility-options">
+                <div>
+                    <ion-icon name="lock-open"></ion-icon>
+                    <p class="public" data-identifier="visibility" onclick="setType(this)">Público</p>
+                </div>
+
+                <div>
+                    <ion-icon name="lock-closed"></ion-icon>
+                    <p class="private" data-identifier="visibility" onclick="setType(this)">Reservadamente</p>
+                </div>
+            </div>
+        </div>
+     `;
+
+    let visibility;
+    if(type === "message") {
+        visibility = document.querySelector(".public");
+     }
+
+     if(type === "private_message") {
+        visibility = document.querySelector(".private");
+     }
+
+     checkElement(visibility, "");
+
+     if(to === "Todos") {
+         let all = document.querySelector(".all");
+         checkElement(all, "to");
+     }
+     
+     checkParticipants();
+
+}
+
+let checkParticipants = () => {
+    if(document.querySelector(".participants-bar") != undefined) {
+        const promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/participants");
+        promise.then(printParticipants);
+    }
+}
+   
+
+let setTo = element => {
+    to = element.innerText;
+
+    checkElement(element, "to");
+
+    if(type === "private_message") {
+        document.querySelector(".send-info").innerHTML = `Enviando para ${to} (reservadamente)`;
+    }   else {
+            document.querySelector(".send-info").innerHTML = `Enviando para ${to}`;
+    } 
+}
+
+let setType = element => {
+    if(element.innerText === "Reservadamente") {
+        type = "private_message";
+    } else {
+        type = "message";
+    }
+
+    checkElement(element, "type");
+
+    if(type === "private_message") {
+        document.querySelector(".send-info").innerHTML = `Enviando para ${to} (reservadamente)`;
+    }   else {
+        document.querySelector(".send-info").innerHTML = `Enviando para ${to}`;
+    }
+}
+
+let closeSidebar = () => {
+    let node = document.querySelector(".cover");
+    node.parentNode.removeChild(node);
+    
+    node = document.querySelector(".participants-bar");
+    node.parentNode.removeChild(node);
+} 
+
+let checkElement = (element, sort) => {
+    if(sort === "type") {
+        const node = document.querySelector(".visibility-options .checked");
+        if(node != undefined) {
+            node.parentNode.removeChild(node);
+        }
+    }
+
+    if(sort === "to") {
+        const node = document.querySelector(".participants-list .checked");
+        if(node != undefined) {
+            node.parentNode.removeChild(node);
+        }   
+    }
+
+    element.parentNode.innerHTML += `
+        <ion-icon class="checked" name="checkmark-sharp"></ion-icon>
+    `;
+}
  
